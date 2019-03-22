@@ -1,8 +1,18 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: googleFont;
+  src: url('../Google-Sans-Fonts/GoogleSans-Regular.ttf');
 }
+
+body{
+  padding: 1px;
+  font-family: googleFont;
+}
+
 
 a {
   color: #00B7FF;
+}
+
+.container-fluid{
+  font-family: googleFont;
 }
