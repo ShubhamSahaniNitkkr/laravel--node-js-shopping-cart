@@ -1,49 +1,19 @@
-<div class="row">
-<div class="card mx-auto my-4" style="width: 18rem;">
-  <img src="https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div class="clearfix">
-      <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> 1200</a>
-      <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
+{{# each products}}
+  <div class="row">
+    {{# each this}}
+    <div class="card mx-auto my-4" style="width: 18rem; height: 10rem ;">
+      <img src="{{this.imagePath}}" class="card-img-top" alt="{{this.title}}">
+      <div class="card-body" style="border:1px solid #80808052;">
+        <h5 class="card-title">{{this.title}}</h5>
+        <hr>
+        <p class="card-text">{{this.description}}</p>
+        <hr>
+        <div class="clearfix">
+          <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> {{this.price}}</a>
+          <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
+        </div>
+      </div>
     </div>
+    {{/each}}
   </div>
-</div>
-
-<div class="card mx-auto my-4" style="width: 18rem;">
-  <img src="https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div class="clearfix">
-      <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> 1200</a>
-      <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
-    </div>
-  </div>
-</div>
-
-<div class="card mx-auto my-4" style="width: 18rem;">
-  <img src="https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div class="clearfix">
-      <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> 1200</a>
-      <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
-    </div>
-  </div>
-</div>
-
-<div class="card mx-auto my-4" style="width: 18rem;">
-  <img src="https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div class="clearfix">
-      <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> 1200</a>
-      <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
-    </div>
-  </div>
-</div>
-</div>
+{{/each}}
