@@ -1,0 +1,49 @@
+{{#if products}}
+  <table class="table table-bordered table-hover col-md-8 mx-auto">
+    <thead>
+      <tr >
+        <td colspan="4">
+        <h1 class="text-primary text-center"><i class="fas fa-shopping-bag"></i> Your Cart</h1>
+      </td>
+      </tr>
+    </thead>
+  <thead class="bg-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Update</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+      <tr>
+        <td>{{this.item.title}}</td>
+        <td>{{this.qty}}</td>
+        <td>
+          <a href="/reduce/{{this.item._id}}" class="btn btn-sm btn-outline-warning"><i class="fas fa-minus"></i></a>
+          <a href="/addto/{{this.item._id}}" class="btn btn-sm btn-outline-success"><i class="fas fa-plus"></i></a>
+          <a href="/remove/{{this.item._id}}" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></a>
+        </td>
+
+        <td>{{this.item.price}}</td>
+      </tr>
+    {{/each}}
+    <tr class="text-right">
+      <td colspan="4">
+        Total : <h2 class="text-success"><i class="fas fa-rupee-sign"></i> {{totalPrice}}</h2>
+      </td>
+    </tr>
+
+    <tr class="text-right">
+      <td colspan="4">
+        <a href="/checkout" class="btn btn-info">Checkout <i class="fas fa-angle-double-right"></i></a>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+{{else}}
+  <h1 class="text-center text-danger">
+    There is no items in Your Shopping cart ! <i class="fas fa-cat"></i>
+  </h1>
+{{/if}}

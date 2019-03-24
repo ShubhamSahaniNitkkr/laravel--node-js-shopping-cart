@@ -1,16 +1,17 @@
 {{# each products}}
   <div class="row">
     {{# each this}}
-    <div class="card mx-auto my-4" style="width: 18rem; height: 10rem ;">
+    <div class="card mx-auto my-4" style="width: 18rem ;">
       <img src="{{this.imagePath}}" class="card-img-top" alt="{{this.title}}">
       <div class="card-body" style="border:1px solid #80808052;">
         <h5 class="card-title">{{this.title}}</h5>
         <hr>
         <p class="card-text">{{this.description}}</p>
+        <p class="card-text h3 text-secondary"><i class="fas fa-rupee-sign"></i> {{this.price}}</p>
         <hr>
         <div class="clearfix">
-          <a href="#" class="btn btn-outline-info float-left"><i class="fas fa-rupee-sign"></i> {{this.price}}</a>
-          <a href="#" class="btn btn-outline-success float-right"><i class="fas fa-money-bill-alt"></i> Buy </a>
+          <a href="/add/{{this._id}}" class="btn btn-outline-success float-left"><i class="fas fa-money-bill-alt"></i> Buy </a>
+          <a href="/add-to-cart/{{this._id}}" class="btn btn-outline-info float-right"> <i class="fas fa-shopping-bag"></i> Add to Cart </a>
         </div>
       </div>
     </div>

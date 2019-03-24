@@ -40,4 +40,30 @@ passport.use('local-signup',new LocalStrategy({
         return done(null,newUser);
       });
   });
-}))
+}));
+
+
+
+
+
+passport.use('local-signin',new LocalStrategy({
+  usernameField:'email',
+  passwordField:'password',
+  passReqToCallback:true
+},function(req,email,password,done){
+  User.findOne({'email':email},function(err,user){
+      if(err){
+        return done(err);
+      }
+      if(!user){
+        var messages = "Email does not exist !";
+        return done(null,false,req.flash('error',messages));
+      }
+
+      if(!user.vaildPassword(password)){
+        var messages = "Please enter correct password!";
+        return done(null,false,req.flash('error',messages));
+      }
+      return done(null,user);
+  });
+}));
