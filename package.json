@@ -1,9 +1,14 @@
 {
-  "name": "shubham-sunny-shopping-cart",
+  "name": "node-express-shopping-cart",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "demo": "DEMO_MODE=true node ./bin/www",
+    "seed": "node seed/product-seeder.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",

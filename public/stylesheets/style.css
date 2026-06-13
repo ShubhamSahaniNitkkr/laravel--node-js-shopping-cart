@@ -1,18 +1,23 @@
-@font-face {
-  font-family: googleFont;
-  src: url('../Google-Sans-Fonts/GoogleSans-Regular.ttf');
-}
-
-body{
+body {
   padding: 1px;
-  font-family: googleFont;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
 }
-
 
 a {
   color: #00B7FF;
 }
 
-.container-fluid{
-  font-family: googleFont;
+.container-fluid {
+  font-family: inherit;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 0.5rem;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
 }

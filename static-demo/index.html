@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js Shopping Cart</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <style>
+    body { background: #f4f6f9; padding-top: 70px; }
+    .demo-banner {
+      background: #fff3cd;
+      border-bottom: 1px solid #ffc107;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 0.9rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1030;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+    .card { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .card-img-top { height: 180px; object-fit: cover; }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    <strong>Static Demo</strong> — Full checkout needs <code>npm run demo</code> locally. Login: <code>demo@demo.com</code> / <code>demo123</code>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="top:36px">
+    <a class="navbar-brand" href="./"><i class="fas fa-shopping-cart"></i> Node Shop</a>
+    <div class="ml-auto">
+      <a href="./cart.html" class="btn btn-outline-light btn-sm mr-2"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
+      <a href="./login.html" class="btn btn-success btn-sm">Login</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="mt-4 mb-3">Products</h2>
+    <div class="product-grid" id="products"></div>
+  </div>
+
+  <script>
+    const products = [
+      { id: "prod-1", title: "XBOX 400E", description: "Xbox gaming console with next-gen games.", price: 20030, image: "https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" },
+      { id: "prod-2", title: "XBOX 600T", description: "Premium Xbox console for high-performance gaming.", price: 35000, image: "https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" },
+      { id: "prod-3", title: "XBOX 000F", description: "Compact Xbox console for family gaming.", price: 30000, image: "https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" },
+      { id: "prod-4", title: "XBOX 00ET", description: "Entry-level Xbox with essential features.", price: 10030, image: "https://claudescafedavao.com/wp-content/uploads/2018/08/consoles.jpg" }
+    ];
+
+    document.getElementById("products").innerHTML = products.map(p => `
+      <div class="card">
+        <img class="card-img-top" src="${p.image}" alt="${p.title}">
+        <div class="card-body">
+          <h5 class="card-title">${p.title}</h5>
+          <p class="card-text text-muted">${p.description}</p>
+          <p class="h5 text-secondary"><i class="fas fa-rupee-sign"></i> ${p.price.toLocaleString()}</p>
+          <button class="btn btn-outline-info btn-sm" onclick="alert('Run npm run demo for full cart functionality')">
+            <i class="fas fa-shopping-bag"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    `).join("");
+  </script>
+</body>
+</html>
